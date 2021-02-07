@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 01:27:25 by jkoskela          #+#    #+#             */
-/*   Updated: 2020/10/23 00:17:40 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/02/06 18:26:36 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 void		p_char(char c)
 {
-	write(1, &c, 1);
+	if (!(write(1, &c, 1)))
+		return ;
 }
 
 /*

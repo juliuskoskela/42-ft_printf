@@ -6,13 +6,13 @@
 #    By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/01 00:14:29 by jkoskela          #+#    #+#              #
-#    Updated: 2021/02/05 19:58:56 by jkoskela         ###   ########.fr        #
+#    Updated: 2021/02/06 17:53:30 by jkoskela         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		=	libft.a
 
-CC			?=	gcc
+CC			?=	clang
 FLAGS		=	-g -Wall -Wextra -Werror -O3 -D FULL_LIBFT
 
 LEN_NAME	=	`printf "%s" $(NAME) |wc -c`

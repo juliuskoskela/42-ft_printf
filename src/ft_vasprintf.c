@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 16:50:47 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/02/06 02:58:58 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/02/07 00:39:55 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -156,11 +156,11 @@ static void			pf_get_prec_width(t_printf *p, size_t i)
 
 static void			pf_convert_argument(t_printf *p)
 {
-	p->out = chk(B) ? c_itoa_base(args.intmax, 2) : p->out;
-	p->out = chk(C) ? s_dup((char *)&args.intmax) : p->out;
+	p->out = chk(F) ? decimal(args.ldbl, g_p) : p->out;
 	p->out = chk(D | I | U) ? c_itoa_base(args.intmax, 10) : p->out;
 	p->out = chk(E) ? scientific(args.ldbl, g_p) : p->out;
-	p->out = chk(F) ? decimal(args.ldbl, g_p) : p->out;
+	p->out = chk(B) ? c_itoa_base(args.intmax, 2) : p->out;
+	p->out = chk(C) ? s_dup((char *)&args.intmax) : p->out;
 	p->out = chk(O) ? c_itoa_base(args.intmax, 8) : p->out;
 	p->out = chk(X | P) ? c_itoa_base(args.intmax, 16) : p->out;
 	p->out = chk(S) && args.ptr ? s_dup((char *)args.ptr) : p->out;

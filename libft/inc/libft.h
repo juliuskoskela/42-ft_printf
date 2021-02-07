@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 01:16:02 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/02/06 03:23:38 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/02/06 17:57:26 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@
 # include <unistd.h>
 # include <stdio.h>
 # include <math.h>
-# include <float.h>
+# include <stdint.h>
+
 
 typedef struct		s_stack
 {

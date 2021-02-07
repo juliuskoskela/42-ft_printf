@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 01:24:20 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/01/03 01:31:52 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/02/06 18:23:32 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ static void		b_fldprint1(uint64_t *field, uint64_t w, uint64_t h)
 	while (i < h)
 	{
 		p_bits(field[i], w);
-		write(1, "\n", 1);
+		if (!(write(1, "\n", 1)))
+			return ;
 		i++;
 	}
 }

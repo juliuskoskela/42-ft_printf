@@ -2,8 +2,8 @@
 #include <float.h>
 #include <limits.h>
 #include <math.h>
-#include "../inc/ft_printf.h"
-#include "../libft/inc/libft.h"
+#include "inc/ft_printf.h"
+#include "libft/inc/libft.h"
 
 #define DBL_NORM 123456789.333333333333333333333333333333
 

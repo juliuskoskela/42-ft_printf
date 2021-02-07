@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 01:27:43 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/02/05 03:18:19 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/02/06 18:29:23 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 int				p_str(char const *s)
 {
-	write(1, s, s_len(s));
+	if (!(write(1, s, s_len(s))))
+		return (0);
 	return (1);
 }
 

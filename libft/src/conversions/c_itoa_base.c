@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/22 22:03:35 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/02/05 05:05:25 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/02/07 00:33:02 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ char			*c_itoa_base(int64_t nb, int64_t base)
 	i = 0;
 	sign = nb < 0 ? -1 : 1;
 	nb = nb * sign;
-	out = s_new(m_dcnt(nb, base) + 1);
 	tab = "0123456789abcdef";
 	if (base > 16 || base < 1)
 		return (NULL);
@@ -30,6 +29,7 @@ char			*c_itoa_base(int64_t nb, int64_t base)
 		return (c_itoa(nb));
 	else if (base == 2)
 		return (c_bitoa(nb, 64));
+	out = s_new(m_dcnt(nb, base) + 1);
 	while (nb > base)
 	{
 		out[i] = tab[nb % base];

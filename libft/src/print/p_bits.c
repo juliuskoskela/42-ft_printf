@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 01:27:20 by jkoskela          #+#    #+#             */
-/*   Updated: 2020/10/23 00:17:40 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/02/06 18:26:00 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ void			p_bits(uint64_t nb, uint64_t size)
 	while (i < size)
 	{
 		c = b_checknth(nb, i) ? '1' : '0';
-		write(1, &c, 1);
+		if (!(write(1, &c, 1)))
+			return ;
 		i++;
 	}
 }

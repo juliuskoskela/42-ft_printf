@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 01:25:51 by jkoskela          #+#    #+#             */
-/*   Updated: 2020/10/23 00:17:40 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/02/06 18:28:49 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 void		fd_addchar(char c, int fd)
 {
-	write(fd, &c, 1);
+	if (!(write(fd, &c, 1)))
+		return ;
 }
 
 /*

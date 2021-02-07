@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 01:26:07 by jkoskela          #+#    #+#             */
-/*   Updated: 2020/10/23 00:17:40 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/02/06 18:28:45 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 void		fd_addstr(char const *s, int fd)
 {
-	write(fd, s, s_len(s));
+	if (!(write(fd, s, s_len(s))))
+		return ;
 }
 
 /*

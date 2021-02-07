@@ -6,7 +6,7 @@
 #    By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/22 22:32:30 by jkoskela          #+#    #+#              #
-#    Updated: 2021/02/05 20:01:45 by jkoskela         ###   ########.fr        #
+#    Updated: 2021/02/06 18:37:33 by jkoskela         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,8 +21,8 @@ HEADER		=	inc
 FOLDER		=	src
 LIBFT 		=	libft
 
-CC			=	gcc
-CFLAGS 		=	-g -Wall -Wextra -Werror
+CC			=	clang
+CFLAGS 		=	-g -Wall -Wextra -Werror -fPIC
 RM			=	rm -f
 
 SRC			=	$(addprefix ${FOLDER}/, ${SRC_LIST})

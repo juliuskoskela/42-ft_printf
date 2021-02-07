@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 00:44:07 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/02/06 01:20:50 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/02/06 18:27:30 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,8 @@ int					ft_printf(const char *restrict fmt, ...)
 		p_str("\nft_printf error: failed!\n");
 		return (-1);
 	}
-	write(1, out, s_len(out));
+	if (!(write(1, out, s_len(out))))
+		return (-1);
 	s_del(&out);
 	va_end(ap);
 	return (ret);
