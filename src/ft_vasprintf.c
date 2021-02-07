@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 16:50:47 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/02/07 00:39:55 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/02/07 05:05:07 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,7 +124,7 @@ static void			pf_set_size(void)
 	g_flag = asr(UINT | H) ? set(USHORT) - UINT : g_flag;
 }
 
-static void			pf_pop_argument(t_printf *p)
+static void			pf_delist(t_printf *p)
 {
 	args.intmax = chk(INT) ? va_arg(p->arg, int) : args.intmax;
 	args.intmax = chk(LONG) ? va_arg(p->arg, long) : args.intmax;
@@ -141,7 +141,7 @@ static void			pf_pop_argument(t_printf *p)
 	args.ptr = chk(PTR) ? va_arg(p->arg, void *) : args.ptr;
 }
 
-static void			pf_get_prec_width(t_printf *p, size_t i)
+static void			pf_convert(t_printf *p, size_t i)
 {
 	while (s_chr("0-#+ ", p->arg_str[i]))
 		i++;
@@ -152,10 +152,6 @@ static void			pf_get_prec_width(t_printf *p, size_t i)
 	g_s = chk(LDBL | DBL) ? m_fsign(args.ldbl) : g_s;
 	g_s = chk(INT | LONG | LLONG | SHORT | CHAR) ? m_sign(args.intmax) : g_s;
 	g_s = chk(UINT | ULONG | ULLONG | USHORT | UCHAR) ? m_sign(args.intmax) : g_s;
-}
-
-static void			pf_convert_argument(t_printf *p)
-{
 	p->out = chk(F) ? decimal(args.ldbl, g_p) : p->out;
 	p->out = chk(D | I | U) ? c_itoa_base(args.intmax, 10) : p->out;
 	p->out = chk(E) ? scientific(args.ldbl, g_p) : p->out;
@@ -168,30 +164,17 @@ static void			pf_convert_argument(t_printf *p)
 	p->out = chk(ESC) ? s_dup("%") : p->out;
 }
 
-static int			pf_get_prefix(t_printf *p)
+static void			pf_padding(t_printf *p, char *pre)
 {
-	char			*prefix;
-
-	prefix = NULL;
-	if (g_s < 0 && chk(F | E | I | D))
-		prefix = s_dup("-");
-	else if (g_s >= 0 && chk(PLUS) && chk(F | E | I | D))
-		prefix = s_dup("+");
-	else if (chk(SPACE) && chk(F | D))
-		prefix = s_dup(" ");
-	else if (g_s && (asr(HASH | X) || chk(P)))
-		prefix = s_dup("0x");
-	else if (asr(HASH | B))
-		prefix = s_dup("0b");
-	else if (asr(HASH | O) && g_p < (int)s_len(p->out) + 1)
-		prefix = s_dup("0");
-	g_p += s_len(prefix);
-	p->out = s_join_free(prefix, p->out, 3);
-	return (1);
-}
-
-static int			pf_fill_container(t_printf *p)
-{
+	pre = chk(F | E | I | D) && g_s == -1 ? s_dup("-") : pre;
+	pre = chk(PLUS) && chk(F | E | I | D) && g_s >= 0 ? s_dup("+") : pre;
+	pre = chk(SPACE) && chk(F | D) ? s_dup(" ") : pre;
+	pre = asr(HASH | X) && g_s ? s_dup("0x") : pre;
+	pre = chk(P) ? s_dup("0x") : pre;
+	pre = asr(HASH | B) ? s_dup("0b") : pre;
+	pre = asr(HASH | O) && g_p < (int)s_len(p->out) + 1 ? s_dup("0") : pre;
+	g_p += s_len(pre);
+	p->out = s_join_free(pre, p->out, 3);
 	p->out = chk(S | C | ESC) ? p->out : s_fill(p->out, g_p, "0");
 	p->out = chk(S | C | ESC) && g_p ? s_cut(p->out, g_p) : p->out;
 	pf_move_prefix(p->out);
@@ -206,7 +189,6 @@ static int			pf_fill_container(t_printf *p)
 	pf_move_prefix(p->out);
 	if (is_upper(p->type))
 		s_iter(&p->out, c_toupper);
-	return (1);
 }
 
 static t_stack		*pf_core_loop(t_printf *p, t_stack *stack)
@@ -226,11 +208,9 @@ static t_stack		*pf_core_loop(t_printf *p, t_stack *stack)
 		p->type = p->arg_str[i - 1];
 		pf_set_flags(p->arg_str, c_tolower(p->type));
 		pf_set_size();
-		pf_pop_argument(p);
-		pf_get_prec_width(p, 0);
-		pf_convert_argument(p);
-		pf_get_prefix(p);
-		pf_fill_container(p);
+		pf_delist(p);
+		pf_convert(p, 0);
+		pf_padding(p, NULL);
 		st_push(&stack, p->out);
 		p->in = pos + s_len(p->arg_str);
 		s_del(&p->arg_str);
