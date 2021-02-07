@@ -6,13 +6,11 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 16:50:47 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/02/07 05:05:07 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/02/07 05:07:43 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/ft_printf.h"
-
-char				*g_types = "%CDEOSUXbcdefiopsux";
 
 static char			*decimal(long double nbr, int prec)
 {
@@ -203,7 +201,7 @@ static t_stack		*pf_core_loop(t_printf *p, t_stack *stack)
 	else
 	{
 		st_push(&stack, tmp);
-		i = find(g_types, ++pos);
+		i = find("%CDEOSUXbcdefiopsux", ++pos);
 		p->arg_str = s_ndup(pos, i);
 		p->type = p->arg_str[i - 1];
 		pf_set_flags(p->arg_str, c_tolower(p->type));
