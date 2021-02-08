@@ -32,3 +32,4 @@ int					ft_asprintf(char **out, const char *format, ...)
 	va_end(ap);
 	return (ret);
 }
+

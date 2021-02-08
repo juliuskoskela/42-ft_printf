@@ -445,6 +445,17 @@ void				test_printf_digit(int64_t test_int)
 	printf("78:     +010.10d:    >>>%+010.10d<<<\n", test_int);
 	printf("79:     +030.10d:    >>>%+030.10d<<<\n", test_int);
 	printf("80:     +010.30d:    >>>%+010.30d<<<\n", test_int);
+
+	printf("81:     d:           >>>%d<<<\n", 42);
+	printf("82:     d:           >>>%d<<<\n", -42);
+	printf("81:     5d:          >>>%5d<<<\n", 42);
+	printf("82:     5d:          >>>%5d<<<\n", -42);
+	printf("83:     + 3d:        >>>%+ 3d<<<\n", 42);
+	printf("84:      .3d:        >>>% .3d<<<\n", 42);
+	printf("85:     + .3d:       >>>%+ .3d<<<\n", -42);
+	printf("86:     + 3d:        >>>%+ 3d<<<\n", 42);
+	printf("87:     + .2d:       >>>%+ .2d<<<\n", 42);
+	printf("88:     -2d:         >>>%-2d<<<\n", 42);
 }
 
 void				test_printf_int(int64_t test_int)

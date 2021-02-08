@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/08 01:47:16 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/02/08 05:05:32 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/02/08 20:08:02 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static int			pf_move_prefix(t_printf *p, char *s)
 
 	i = 0;
 	r = 0;
-	while (!(s_chr("+-xb", s[i])) && s[i])
+	while (!(s_chr(" +-xb", s[i])) && s[i])
 		i++;
 	if (p->sign == -1 &&  s[i] == '-' && s[0] == '0' && f_c(p->f, SIGNED))
 		s_swp(&s[i], &s[0]);
@@ -33,6 +33,8 @@ static int			pf_move_prefix(t_printf *p, char *s)
 		s_swp(&s[i], &s[1]);
 	else if (f_a(p->f, HASH | B) && s[i] == 'b' && s[0] == '0')
 		s_swp(&s[i], &s[1]);
+	else if (f_a(p->f, SPACE) && s[i] == ' ' && s[0] == '0')
+		s_swp(&s[i], &s[0]);
 	return (r);
 }
 
@@ -121,7 +123,7 @@ void				pf_padding(t_printf *p, char *pre)
 {
 	pre = f_c(p->f, F | E | I | D) && p->sign == -1 ? s_dup("-") : pre;
 	pre = f_c(p->f, PLUS) && f_c(p->f, F | E | I | D) && p->sign >= 0 ? s_dup("+") : pre;
-	pre = f_c(p->f, SPACE) && f_c(p->f, F | D) ? s_dup(" ") : pre;
+	pre = f_c(p->f, SPACE) && f_c(p->f, F | D) && !f_c(p->f, PLUS) && p->sign != -1 ? s_dup(" ") : pre;
 	pre = f_a(p->f, HASH | X) && p->sign ? s_dup("0x") : pre;
 	pre = f_c(p->f, P) ? s_dup("0x") : pre;
 	pre = f_a(p->f, HASH | B) ? s_dup("0b") : pre;

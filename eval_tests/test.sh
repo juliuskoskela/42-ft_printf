@@ -10,7 +10,6 @@ gcc eval_tests/test_lib.c libftprintf.a
 mv eval_tests/test_lib.c eval_tests/test_lib.c.test
 
 ./a.out a > lib.txt
-valgrind --leak-check=full ./a.out a > leaks.txt
 
 diff --suppress-common-lines -y usr.txt lib.txt > diff.txt
 wc -l diff.txt

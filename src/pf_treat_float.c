@@ -12,8 +12,6 @@
 
 #include "../inc/ft_printf.h"
 
-// Convert float
-
 static char			*c_decimal(long double nbr, int prec, size_t flags)
 {
 	char			*out;
