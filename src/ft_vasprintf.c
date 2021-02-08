@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 16:50:47 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/02/08 05:05:36 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/02/08 21:19:14 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static t_stack		*pf_core_loop(t_printf *p, t_stack *stack)
 {
 	char			*tmp;
-	char 			*pos;
+	char			*pos;
 	size_t			i;
 
 	tmp = s_cdup(p->in, '%');

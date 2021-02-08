@@ -771,6 +771,34 @@ void				test_printf_undefined()
 	ft_printf("80:     +010.30u:    >>>%+010.30u<<<\n", 123456789);
 }
 
+void				test_failing()
+{
+	ft_printf("");
+	ft_printf("%lx", 4294967296);
+	ft_printf("%llX", 4294967296);
+	ft_printf("%#-08x", 42);
+	ft_printf("@moulitest: %#.x %#.0x", 0, 0);
+	ft_printf("@moulitest: %.x %.0x", 0, 0);
+	ft_printf("@moulitest: %5.x %5.0x", 0, 0);
+	ft_printf("%.2s is a string", "");
+	ft_printf("%-.2s is a string", "");
+	ft_printf("%.2c", NULL);
+	ft_printf("@moulitest: %c", 0);
+	ft_printf("%2c", 0);
+	ft_printf("null %c and text", 0);
+	ft_printf("% c", 0);
+	ft_printf("%-05o", 2500);
+	ft_printf("@moulitest: %.o %.0o", 0, 0);
+	ft_printf("@moulitest: %5.o %5.0o", 0, 0);
+	ft_printf("@moulitest: %#.o %#.0o", 0, 0);
+	ft_printf("%0+5d", -42);
+	ft_printf("%-05d", 42);
+	ft_printf("%-05d", -42);
+	ft_printf("@moulitest: %.d %.0d", 0, 0);
+	ft_printf("@moulitest: %5.d %5.0d", 0, 0);
+	ft_printf("%lu", -42);
+}
+
 int main(int argc, char **argv)
 {
 	double		test_dbl;
@@ -897,6 +925,8 @@ int main(int argc, char **argv)
 		test_printf_scientific(test_dbl);
 		ft_printf("\n\nSizes:\n\n");
 		test_printf_sizes(test_dbl, test_ldbl, test_int, test_uint);
+		// printf("\n\nFailing:\n\n");
+		test_failing();
 	}
 	else if (argv[1][0] == '+')
 	{
@@ -904,6 +934,6 @@ int main(int argc, char **argv)
 		test_printf_additional();
 		return (0);
 	}
-	system("leaks a.out");
+	// system("leaks a.out");
 	return (0);
 }

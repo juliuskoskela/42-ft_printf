@@ -735,6 +735,34 @@ void				test_printf_undefined()
 	printf("80:     +010.30u:    >>>%+010.30u<<<\n", 123456789);
 }
 
+void				test_failing()
+{
+	printf("");
+	printf("%lx", 4294967296);
+	printf("%llX", 4294967296);
+	printf("%#-08x", 42);
+	printf("@moulitest: %#.x %#.0x", 0, 0);
+	printf("@moulitest: %.x %.0x", 0, 0);
+	printf("@moulitest: %5.x %5.0x", 0, 0);
+	printf("%.2s is a string", "");
+	printf("%-.2s is a string", "");
+	printf("%.2c", NULL);
+	printf("@moulitest: %c", 0);
+	printf("%2c", 0);
+	printf("null %c and text", 0);
+	printf("% c", 0);
+	printf("%-05o", 2500);
+	printf("@moulitest: %.o %.0o", 0, 0);
+	printf("@moulitest: %5.o %5.0o", 0, 0);
+	printf("@moulitest: %#.o %#.0o", 0, 0);
+	printf("%0+5d", -42);
+	printf("%-05d", 42);
+	printf("%-05d", -42);
+	printf("@moulitest: %.d %.0d", 0, 0);
+	printf("@moulitest: %5.d %5.0d", 0, 0);
+	printf("%lu", -42);
+}
+
 int main(int argc, char **argv)
 {
 	double		test_dbl;
@@ -860,6 +888,8 @@ int main(int argc, char **argv)
 		test_printf_scientific(test_dbl);
 		printf("\n\nSizes:\n\n");
 		test_printf_sizes(test_dbl, test_ldbl, test_int, test_uint);
+		printf("\n\nFailing:\n\n");
+		// test_failing();
 	}
 	return (0);
 }
