@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/01 00:14:09 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/02/05 17:42:41 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/02/08 03:14:20 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,19 +67,24 @@ typedef union		s_args
 
 typedef struct		s_printf
 {
+	size_t			flags;
+	va_list			arg;
+	t_args			args;
+	char			*arg_str;
 	char			*in;
 	char			*out;
-	char			*arg_str;
+	int				w;
+	int				p;
+	int				sign;
 	int				type;
-	va_list			arg;
-	void			*ptr;
+	// void			*ptr;
 }					t_printf;
 
-size_t				g_flag;
-size_t				g_w;
-int					g_p;
-int					g_s;
-t_args				args;
+size_t				g_flags;
+// size_t				p->w;
+// size_t				p->p;
+// size_t				sign;
+// t_p->args				p->args;
 
 /*
 **  ----------------------------------------------------------------------------
@@ -90,12 +95,25 @@ t_args				args;
 int					ft_printf(const char *format, ...);
 int					ft_asprintf(char **out, const char *format, ...);
 int					ft_vasprintf(char **out, const char *format, va_list ap);
-size_t				chr(char *arg_str, char *fl);
-int					chk(size_t fl);
-size_t				set(size_t fl);
-int					asr(size_t fl);
-int					swp(char *a, char *b);
-int					find(char *dst, char *str);
-char				*is_abnormal(double nbr);
+
+void				pf_set_flags(t_printf *p);
+void				pf_delist(t_printf *p);
+void				pf_convert(t_printf *p, size_t i);
+void				pf_padding(t_printf *p, char *pre);
+
+size_t				chk(size_t flags, size_t fl);
+size_t				set(size_t flags, size_t fl);
+size_t				asr(size_t fl);
+int					s_find_first(char *ref, char *src);
+size_t				f_set_mult(char *flag_order, char *flags_str, size_t flags);
+
+char				*c_float(long double nbr, int prec);
+
+// static int			pf_move_prefix(char *s);
+// static void			pf_set_flags(char *arg_str, char type);
+// static void			pf_set_size(void);
+// static void			pf_delist(t_printf *p);
+// static void			pf_convert(t_printf *p, size_t i);
+// static void			pf_padding(t_printf *p, char *pre);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/20 19:35:18 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/01/20 19:35:19 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/02/07 22:11:25 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ t_mtx4			g_proj(double fv, double rt, int n, int f)
 /*
 **  ----------------------------------------------------------------------------
 **
-**	G_proj
+**	g_proj
 **
 **	3D to 2D projection matrix.
 **	`fv` = field of view in degrees

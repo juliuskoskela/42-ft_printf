@@ -6,7 +6,7 @@
 #    By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/01 00:14:29 by jkoskela          #+#    #+#              #
-#    Updated: 2021/02/06 17:53:30 by jkoskela         ###   ########.fr        #
+#    Updated: 2021/02/08 02:57:30 by jkoskela         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -82,6 +82,7 @@ SRC_BASE =	bits/b_atonb.c \
 			istrue/is_upper.c \
 			istrue/is_wspace.c \
 			istrue/is_numeric.c \
+			istrue/is_abnormal.c \
 			stack/st_push.c \
 			stack/st_pop.c \
 			math/m_rad.c \
@@ -93,6 +94,7 @@ SRC_BASE =	bits/b_atonb.c \
 			math/m_log.c \
 			math/m_nextprime.c \
 			math/m_pow.c \
+			math/m_ipow.c \
 			math/m_prime.c \
 			math/m_primefac.c \
 			math/m_sin.c \
@@ -105,6 +107,7 @@ SRC_BASE =	bits/b_atonb.c \
 			math/m_sign.c \
 			math/m_fsign.c \
 			math/m_abs.c \
+			math/m_roundl.c \
 			print/p_bits.c \
 			print/p_char.c \
 			print/p_endl.c \
@@ -151,6 +154,8 @@ SRC_BASE =	bits/b_atonb.c \
 			strings/s_join_free.c \
 			strings/s_fill.c \
 			strings/s_cut.c \
+			strings/s_swp.c \
+			strings/s_find_first.c \
 			void/v_alloc.c \
 			void/v_bzero.c \
 			void/v_calloc.c \
@@ -180,6 +185,7 @@ SRC_BASE =	bits/b_atonb.c \
 			graphics/g_scale.c \
 			graphics/g_print_mtx.c \
 			graphics/g_print_vct.c \
+			flags/f_scan.c \
 
 SRCS		=	$(addprefix $(SRC_DIR), $(SRC_BASE))
 OBJS		=	$(addprefix $(OBJ_DIR), $(SRC_BASE:.c=.o))

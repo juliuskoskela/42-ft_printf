@@ -1,28 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   s_swp.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/05 13:21:05 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/02/08 03:14:27 by jkoskela         ###   ########.fr       */
+/*   Created: 2021/02/08 02:21:00 by jkoskela          #+#    #+#             */
+/*   Updated: 2021/02/08 02:22:11 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/ft_printf.h"
+#include "../../inc/libft.h"
 
-size_t			chk(size_t flags, size_t fl)
+void				s_swp(char *a, char *b)
 {
-	return (flags & fl ? flags & fl : 0);
+	char	out;
+
+	out = *a;
+	*a = *b;
+	*b = out;
 }
 
-size_t			set(size_t flags, size_t fl)
-{
-	return (flags |= fl);
-}
-
-size_t			asr(size_t fl)
-{
-	return ((fl & g_flags) == fl ? fl : 0);
-}
+/*
+**  ----------------------------------------------------------------------------
+**
+**	S_swp
+**
+**	Swap characters passed as pointers `a` and `b`.
+**
+**  ----------------------------------------------------------------------------
+*/

@@ -1,28 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   g_print_vct.c                                      :+:      :+:    :+:   */
+/*   m_ipow.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/11 06:09:12 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/02/07 22:12:19 by jkoskela         ###   ########.fr       */
+/*   Created: 2021/02/08 00:34:10 by jkoskela          #+#    #+#             */
+/*   Updated: 2021/02/08 00:34:53 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/libft.h"
 
-void		g_print_vct(t_vct4 vct, size_t index)
+int64_t				m_ipow(int64_t base, int64_t exp)
 {
-	printf("v%zu  %.1f  %.1f  %.1f  %.1f\n", index, vct.x, vct.y, vct.z, vct.w);
+	int64_t			tmp;
+	int64_t			i;
+
+	i = 0;
+	tmp = base;
+	if (base == 0 && exp == 0)
+		return (1);
+	else if (base == 0)
+		return (0);
+	else if (exp == 0)
+		return (1);
+	while (i < exp - 1)
+	{
+		tmp *= base;
+		i++;
+	}
+	return (tmp);
 }
 
 /*
 **  ----------------------------------------------------------------------------
 **
-**	G_print_vct
+**	M_ipow
 **
-**	Indexed printing for vector `vct`.
+**	Calculate (integer) `base` raised to the (integer) `exp`th power.
 **
 **  ----------------------------------------------------------------------------
 */

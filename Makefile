@@ -6,7 +6,7 @@
 #    By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/22 22:32:30 by jkoskela          #+#    #+#              #
-#    Updated: 2021/02/06 18:37:33 by jkoskela         ###   ########.fr        #
+#    Updated: 2021/02/08 01:55:52 by jkoskela         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,6 +16,8 @@ SRC_LIST	=	ft_printf.c \
 				ft_asprintf.c \
 				ft_vasprintf.c \
 				utils.c \
+				c_float.c \
+				pf_core.c \
 
 HEADER		=	inc
 FOLDER		=	src
@@ -41,7 +43,7 @@ test:			${NAME}
 				bash test.sh
 				mv test.sh eval_tests/test.sh
 
-%.o: %.c
+%.o: %.
 				@${CC} ${CFLAGS} -I ${HEADER} -o $@ -c $<
 
 clean:

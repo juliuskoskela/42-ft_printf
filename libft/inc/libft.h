@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 01:16:02 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/02/06 17:57:26 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/02/08 02:57:06 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@
 # include <stdio.h>
 # include <math.h>
 # include <stdint.h>
+# include <float.h>
 
 
 typedef struct		s_stack
@@ -46,6 +47,18 @@ typedef union		u_ldshape
 	uint64_t		m;
 	uint16_t		se;
 }					t_ldshape;
+
+typedef struct		s_uint80
+{
+	uint64_t		u64;
+	uint16_t		u16;
+}					t_uint80;
+
+typedef union		u_ldbits
+{
+	long double		ldbl;
+	t_uint80		u80;
+}					t_ldbits;
 
 typedef struct		s_modl
 {
@@ -237,8 +250,8 @@ t_mtx4				g_scale(double scale);
 t_mtx4				g_translate(t_vct4 vtx);
 t_mtx4				g_transpose(t_mtx4 src);
 t_vct4				g_vct4(double x, double y, double z, double w);
-void				g_print_mtx(t_mtx4 mtx);
-void				g_print_vct(t_vct4 vct, size_t index);
+void				print_mtx(t_mtx4 mtx);
+void				print_vct(t_vct4 vct, size_t index);
 /*
 **  ----------------------------------------------------------------------------
 **
@@ -257,6 +270,7 @@ int					is_lower(int c);
 int					is_wspace(char c);
 int					is_neg(int n);
 int					is_numeric(int c);
+int					is_abnormal(double nbr);
 /*
 **  ----------------------------------------------------------------------------
 **
@@ -286,6 +300,8 @@ long double			m_modl(long double x, long double *iptr);
 int64_t				m_abs(int64_t n);
 int					m_sign(int64_t n);
 int					m_fsign(long double n);
+long double			m_roundl(long double x);
+int64_t				m_ipow(int64_t base, int64_t exp);
 /*
 **  ----------------------------------------------------------------------------
 **
@@ -308,6 +324,14 @@ void				p_dlist_s(t_dlist **list);
 */
 void				*st_pop(t_stack **head);
 int					st_push(t_stack **head, void *value);
+/*
+**  ----------------------------------------------------------------------------
+**
+**	Flags
+**
+**	An implementation of a bitwise flag system.
+*/
+size_t				f_scan(char *flag_order, char *flags_str, size_t flags);
 /*
 **  ----------------------------------------------------------------------------
 **
@@ -355,6 +379,8 @@ char				*s_newc(size_t size, int c);
 char				*s_join_free(char *s1, char *s2, size_t flag);
 char				*s_fill(char *data, size_t b_size, char *flags);
 char				*s_cut(char *s, size_t size);
+void				s_swp(char *a, char *b);
+int					s_find_first(char *ref, char *src);
 /*
 **  ----------------------------------------------------------------------------
 **

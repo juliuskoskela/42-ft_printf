@@ -1,28 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   g_print_vct.c                                      :+:      :+:    :+:   */
+/*   is_abnormal.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/11 06:09:12 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/02/07 22:12:19 by jkoskela         ###   ########.fr       */
+/*   Created: 2021/02/08 01:59:02 by jkoskela          #+#    #+#             */
+/*   Updated: 2021/02/08 02:00:27 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/libft.h"
 
-void		g_print_vct(t_vct4 vct, size_t index)
+int				is_abnormal(double nbr)
 {
-	printf("v%zu  %.1f  %.1f  %.1f  %.1f\n", index, vct.x, vct.y, vct.z, vct.w);
+	if (nbr != nbr)
+		return (1);
+	if (nbr == POS_INF)
+		return (2);
+	if (nbr == NEG_INF)
+		return (3);
+	return (0);
 }
 
 /*
 **  ----------------------------------------------------------------------------
 **
-**	G_print_vct
+**	Is_abnormal
 **
-**	Indexed printing for vector `vct`.
+**	Returns 0 if `nbr` isn't abnormal, 1 if it's not a number, 2 if it's
+**	positive infinity and 3 if negative infinity.
 **
 **  ----------------------------------------------------------------------------
 */
