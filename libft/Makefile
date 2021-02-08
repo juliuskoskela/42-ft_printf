@@ -6,7 +6,7 @@
 #    By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/07/01 00:14:29 by jkoskela          #+#    #+#              #
-#    Updated: 2021/02/08 02:57:30 by jkoskela         ###   ########.fr        #
+#    Updated: 2021/02/08 03:29:25 by jkoskela         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -186,6 +186,9 @@ SRC_BASE =	bits/b_atonb.c \
 			graphics/g_print_mtx.c \
 			graphics/g_print_vct.c \
 			flags/f_scan.c \
+			flags/f_s.c \
+			flags/f_c.c \
+			flags/f_a.c \
 
 SRCS		=	$(addprefix $(SRC_DIR), $(SRC_BASE))
 OBJS		=	$(addprefix $(OBJ_DIR), $(SRC_BASE:.c=.o))

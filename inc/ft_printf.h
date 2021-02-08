@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/01 00:14:09 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/02/08 03:14:20 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/02/08 05:05:31 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,60 +60,32 @@
 
 typedef union		s_args
 {
-	intmax_t		intmax;
-	long double		ldbl;
-	void			*ptr;
+	intmax_t		i;
+	long double		d;
+	void			*p;
 }					t_args;
 
 typedef struct		s_printf
 {
-	size_t			flags;
-	va_list			arg;
-	t_args			args;
-	char			*arg_str;
+	size_t			f;
+	va_list			ap;
+	t_args			a;
+	char			*flags;
 	char			*in;
 	char			*out;
 	int				w;
 	int				p;
 	int				sign;
 	int				type;
-	// void			*ptr;
 }					t_printf;
 
-size_t				g_flags;
-// size_t				p->w;
-// size_t				p->p;
-// size_t				sign;
-// t_p->args				p->args;
-
-/*
-**  ----------------------------------------------------------------------------
-**	Parse format to separate variable argument specifications from directly
-**	printable in, put the separate pieces in a linked list, convert
-**	variable arguments and join the converted arguments with the printables.
-*/
 int					ft_printf(const char *format, ...);
 int					ft_asprintf(char **out, const char *format, ...);
 int					ft_vasprintf(char **out, const char *format, va_list ap);
-
 void				pf_set_flags(t_printf *p);
 void				pf_delist(t_printf *p);
 void				pf_convert(t_printf *p, size_t i);
 void				pf_padding(t_printf *p, char *pre);
-
-size_t				chk(size_t flags, size_t fl);
-size_t				set(size_t flags, size_t fl);
-size_t				asr(size_t fl);
-int					s_find_first(char *ref, char *src);
-size_t				f_set_mult(char *flag_order, char *flags_str, size_t flags);
-
-char				*c_float(long double nbr, int prec);
-
-// static int			pf_move_prefix(char *s);
-// static void			pf_set_flags(char *arg_str, char type);
-// static void			pf_set_size(void);
-// static void			pf_delist(t_printf *p);
-// static void			pf_convert(t_printf *p, size_t i);
-// static void			pf_padding(t_printf *p, char *pre);
+char				*pf_treat_float(long double nbr, int prec, size_t flags);
 
 #endif

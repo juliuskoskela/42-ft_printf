@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   f_c.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/05 13:21:05 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/02/08 03:14:27 by jkoskela         ###   ########.fr       */
+/*   Created: 2021/02/08 03:22:18 by jkoskela          #+#    #+#             */
+/*   Updated: 2021/02/08 03:27:51 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/ft_printf.h"
+#include "../../inc/libft.h"
 
-size_t			chk(size_t flags, size_t fl)
+size_t			f_c(size_t flags, size_t fl)
 {
 	return (flags & fl ? flags & fl : 0);
 }
 
-size_t			set(size_t flags, size_t fl)
-{
-	return (flags |= fl);
-}
-
-size_t			asr(size_t fl)
-{
-	return ((fl & g_flags) == fl ? fl : 0);
-}
+/*
+**  ----------------------------------------------------------------------------
+**
+**	F_c
+**
+**	Flag check: Check if any bit in `fl` is set on in `flags`.
+**
+**  ----------------------------------------------------------------------------
+*/

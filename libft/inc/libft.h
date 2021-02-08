@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/16 01:16:02 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/02/08 02:57:06 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/02/08 04:31:46 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -331,7 +331,10 @@ int					st_push(t_stack **head, void *value);
 **
 **	An implementation of a bitwise flag system.
 */
-size_t				f_scan(char *flag_order, char *flags_str, size_t flags);
+size_t				f_scan(char *flag_order, char *flags_str);
+size_t				f_c(size_t flags, size_t fl);
+size_t				f_s(size_t flags, size_t fl);
+size_t				f_a(size_t flags, size_t fl);
 /*
 **  ----------------------------------------------------------------------------
 **

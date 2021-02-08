@@ -6,7 +6,7 @@
 #    By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/22 22:32:30 by jkoskela          #+#    #+#              #
-#    Updated: 2021/02/08 01:55:52 by jkoskela         ###   ########.fr        #
+#    Updated: 2021/02/08 04:52:48 by jkoskela         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,8 +15,7 @@ NAME		=	libftprintf.a
 SRC_LIST	=	ft_printf.c \
 				ft_asprintf.c \
 				ft_vasprintf.c \
-				utils.c \
-				c_float.c \
+				pf_treat_float.c \
 				pf_core.c \
 
 HEADER		=	inc
