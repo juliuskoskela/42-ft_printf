@@ -6,7 +6,7 @@
 #    By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/22 22:32:30 by jkoskela          #+#    #+#              #
-#    Updated: 2021/02/08 04:52:48 by jkoskela         ###   ########.fr        #
+#    Updated: 2021/02/08 21:36:31 by jkoskela         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,8 +15,11 @@ NAME		=	libftprintf.a
 SRC_LIST	=	ft_printf.c \
 				ft_asprintf.c \
 				ft_vasprintf.c \
+				pf_convert.c \
+				pf_delist.c \
+				pf_padding.c \
+				pf_set_flags.c \
 				pf_treat_float.c \
-				pf_core.c \
 
 HEADER		=	inc
 FOLDER		=	src

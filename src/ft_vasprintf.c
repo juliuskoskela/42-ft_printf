@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 16:50:47 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/02/08 21:19:14 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/02/08 21:37:00 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static t_stack		*pf_core_loop(t_printf *p, t_stack *stack)
 		pf_set_flags(p);
 		pf_delist(p);
 		pf_convert(p, 0);
-		pf_padding(p, NULL);
+		pf_padding(p);
 		st_push(&stack, p->out);
 		p->in = pos + s_len(p->flags);
 		s_del(&p->flags);

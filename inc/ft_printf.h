@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/01 00:14:09 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/02/08 05:05:31 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/02/08 21:35:06 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ int					ft_vasprintf(char **out, const char *format, va_list ap);
 void				pf_set_flags(t_printf *p);
 void				pf_delist(t_printf *p);
 void				pf_convert(t_printf *p, size_t i);
-void				pf_padding(t_printf *p, char *pre);
+void				pf_padding(t_printf *p);
 char				*pf_treat_float(long double nbr, int prec, size_t flags);
 
 #endif
