@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/30 00:44:07 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/02/02 16:53:00 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/02/08 20:58:25 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,4 +32,3 @@ int					ft_asprintf(char **out, const char *format, ...)
 	va_end(ap);
 	return (ret);
 }
-
