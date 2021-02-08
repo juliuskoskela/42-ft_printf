@@ -6,18 +6,18 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/08 02:44:58 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/02/08 04:32:47 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/02/08 21:40:43 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/libft.h"
 
-size_t			f_scan(char *flag_order, char *flags_str)
+size_t				f_scan(char *flag_order, char *flags_str)
 {
 	size_t			i;
 	size_t			j;
 	size_t			ret;
-	size_t 			flags;
+	size_t			flags;
 
 	i = 0;
 	j = 0;

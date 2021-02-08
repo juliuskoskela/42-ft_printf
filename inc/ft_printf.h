@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/01 00:14:09 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/02/08 21:35:06 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/02/08 21:39:11 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@
 # define UNSIGNED 0XAA80000
 # define FLOAT 0X30000000
 
-typedef union		s_args
+typedef union		u_args
 {
 	intmax_t		i;
 	long double		d;

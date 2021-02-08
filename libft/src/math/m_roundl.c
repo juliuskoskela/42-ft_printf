@@ -6,7 +6,7 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/07 19:35:26 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/02/07 20:07:07 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/02/08 21:40:13 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ long double			m_roundl(long double x)
 		return (x);
 	if (u.u80.u16 >> 15)
 		x = -x;
-	if (e < 0x3fff-1)
+	if (e < 0x3fff - 1)
 		return (0 * u.ldbl);
 	y = x + toint - toint - x;
 	if (y > 0.5)
