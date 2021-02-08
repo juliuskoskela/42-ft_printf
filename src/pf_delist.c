@@ -6,15 +6,11 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/08 21:30:33 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/02/08 21:30:41 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/02/08 21:43:22 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/ft_printf.h"
-
-/*
-**	Delist arguments according to their respective types from the argument list.
-*/
 
 void				pf_delist(t_printf *p)
 {

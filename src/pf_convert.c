@@ -6,15 +6,11 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/08 21:31:10 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/02/08 21:31:22 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/02/08 21:43:17 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/ft_printf.h"
-
-/*
-**	Convert arguments to string format.
-*/
 
 void				pf_convert(t_printf *p, size_t i)
 {

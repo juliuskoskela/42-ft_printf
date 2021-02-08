@@ -6,15 +6,11 @@
 /*   By: jkoskela <jkoskela@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/08 21:29:49 by jkoskela          #+#    #+#             */
-/*   Updated: 2021/02/08 21:30:02 by jkoskela         ###   ########.fr       */
+/*   Updated: 2021/02/08 21:43:31 by jkoskela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/ft_printf.h"
-
-/*
-**	Set all flags p->f.
-*/
 
 void				pf_set_flags(t_printf *p)
 {
