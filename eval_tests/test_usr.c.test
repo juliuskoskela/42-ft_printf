@@ -675,7 +675,7 @@ void				test_printf_bits()
 
 void				test_printf_asprintf()
 {
-	char			*out;
+	char			*out = NULL;
 	int				ret;
 	ret = ft_asprintf(&out, "Vsprintf should return this string and a %d", 123);
 	ft_printf("%s\nret = %d\n", out, ret);
@@ -685,7 +685,7 @@ void				test_printf_additional()
 {
 	test_printf_ptr();
 	test_printf_bits();
-	// test_printf_asprintf();
+	test_printf_asprintf();
 	ft_printf("5:     .2c         >>>%.2c<<<\n", NULL);
 	ft_printf("9:      c          >>>% c<<<\n", 0);
 	ft_printf("6:     c           >>>@moulitest: %c<<<\n", 0);
@@ -925,15 +925,15 @@ int main(int argc, char **argv)
 		test_printf_scientific(test_dbl);
 		ft_printf("\n\nSizes:\n\n");
 		test_printf_sizes(test_dbl, test_ldbl, test_int, test_uint);
-		// printf("\n\nFailing:\n\n");
-		test_failing();
 	}
 	else if (argv[1][0] == '+')
 	{
 		ft_printf("\n\nAdditional tests:\n\n");
 		test_printf_additional();
+		printf("\n\nFailing:\n\n");
+		test_failing();
 		return (0);
 	}
-	// system("leaks a.out");
+	system("leaks a.out");
 	return (0);
 }
